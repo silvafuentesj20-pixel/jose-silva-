@@ -16,6 +16,7 @@ export default function WellnessSlides() {
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(false);
   const slide = slides[active];
+  const adjacent = [-1, 1].map(offset => slides[(active + offset + slides.length) % slides.length]);
 
   useEffect(() => {
     const motion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -44,8 +45,12 @@ export default function WellnessSlides() {
         <button type="button" onClick={() => move(1)} aria-label="Imagen siguiente">→</button>
         <span>{active + 1} / {slides.length}</span>
       </div>
-      <div aria-live={playing ? 'off' : 'polite'}>
+      <div className="wellness-track">
+        <Image className="wellness-neighbor" src={asset(`bienestar/${adjacent[0].file}.webp`)} width={760} height={950} alt="" />
+        <div aria-live={playing ? 'off' : 'polite'}>
         <Image key={slide.file} className="wellness-poster" src={asset(`bienestar/${slide.file}.webp`)} width={760} height={950} alt={slide.description} loading={active === 0 ? 'eager' : undefined} />
+        </div>
+        <Image className="wellness-neighbor" src={asset(`bienestar/${adjacent[1].file}.webp`)} width={760} height={950} alt="" />
       </div>
     </section>
   );

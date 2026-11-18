@@ -86,7 +86,8 @@ footer { background: #342052; color: white; }
   .header { padding-block: 14px; }
   .header nav { order: 0; width: auto; }
   .brand img { width: 130px; }
-  .hero { grid-template-columns: 1.12fr .88fr; min-height: 525px; align-items: center; }
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .hero-copy { padding-bottom: 28px; }
   .hero-visual { height: 100%; min-height: 460px; }
   .split, .booking { grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 75px); }
 }
@@ -96,13 +97,20 @@ footer { background: #342052; color: white; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-.wellness-slides { width: min(calc(100% - 32px), 390px); margin: 0 auto 24px; }
+.wellness-slides { width: calc(100% - 32px); margin: 0 auto 24px; }
 .wellness-controls { display: flex; align-items: center; justify-content: center; gap: 7px; margin-bottom: 8px; color: var(--accent); font-size: .84rem; font-weight: 800; }
 .wellness-controls button { min-height: 44px; min-width: 44px; padding-inline: 10px; border: 1px solid var(--line); border-radius: 10px; background: white; cursor: pointer; }
 .wellness-controls button:hover { background: #ebfafa; }
 .wellness-controls span { margin-inline-start: 4px; }
-.wellness-poster { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; border-radius: 18px; background: white; box-shadow: 0 12px 28px #4d2b8824; }
-@media (min-width: 760px) { .wellness-slides { width: min(calc(100% - 36px), 390px); margin: 24px auto; } }
+.wellness-track { display: grid; gap: 16px; align-items: center; }
+.wellness-poster, .wellness-neighbor { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; border-radius: 18px; background: white; box-shadow: 0 12px 28px #4d2b8824; }
+.wellness-track > div { min-width: 0; }
+.wellness-track .wellness-neighbor { display: none; }
+@media (min-width: 760px) {
+  .wellness-slides { width: calc(100% - 64px); margin: 0 auto 32px; }
+  .wellness-track { grid-template-columns: minmax(0,.92fr) minmax(0,1fr) minmax(0,.92fr); }
+  .wellness-track .wellness-neighbor { display: block; }
+}
 @media (prefers-reduced-motion: no-preference) {
   .wellness-poster { animation: wellness-appear .38s ease both; }
   @keyframes wellness-appear { from { opacity: .48; } to { opacity: 1; } }
