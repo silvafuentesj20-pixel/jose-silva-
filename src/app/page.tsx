@@ -1,0 +1,97 @@
+import Image from 'next/image';
+import { asset, contact, faq, instagram, services, team } from '../lib/site';
+import Booking from '../components/Booking';
+import HeroVisual from '../components/HeroVisual';
+import { AgendaLink, Effects } from '../components/Effects';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+export default function Home() {
+  const schema = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Kineli', url: siteUrl, logo: siteUrl ? new URL(asset('logo-kineli.png'), siteUrl).href : undefined, sameAs: [instagram] };
+  return <>
+    {siteUrl && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />}
+    <a className="skip" href="#contenido">Saltar al contenido</a>
+    <header className="shell header">
+      <a href="#inicio" className="brand"><Image src={asset('logo-kineli.png')} width={194} height={109} alt="Kineli, Centro de Rehabilitación y Bienestar" /></a>
+      <nav aria-label="Navegación principal" className="flex flex-wrap items-center gap-x-6 gap-y-1">
+        <a href="#especialidades">Especialidades</a><a href="#equipo">Equipo</a><a href="#contacto">Contacto</a>
+      </nav>
+      <a className="button outline header-cta" href="#reserva">Agenda tu hora</a>
+    </header>
+    <main id="contenido">
+      <section className="hero shell" id="inicio" aria-labelledby="hero-title">
+        <div className="hero-copy">
+          <p className="eyebrow"><span /> KINESIOLOGÍA Y PSICOLOGÍA</p>
+          <h1 id="hero-title">Tu bienestar,<br /><em>nuestro compromiso.</em></h1>
+          <p className="lead">Un espacio para cuidar el movimiento y la salud emocional. Conoce nuestras especialidades y consulta por una hora de atención.</p>
+          <AgendaLink />
+          <a className="scroll-link" href="#especialidades"><span aria-hidden="true">↓</span> Explora Kineli</a>
+        </div>
+        <HeroVisual />
+      </section>
+
+      <section id="especialidades" className="shell section" data-reveal aria-labelledby="services-title">
+        <p className="eyebrow"><span /> ESPECIALIDADES</p>
+        <h2 id="services-title">Dos maneras de cuidarte</h2>
+        <div className="grid items-start gap-5 md:grid-cols-2">
+          {services.map(service => <article className="service lift" key={service.name}>
+            <div className="service-portrait"><Image src={asset(service.image)} alt={service.alt} width={service.width} height={service.height} /></div>
+            <div className="card-copy"><p className="service-brand">Kineli</p><h3>{service.name}</h3><p>{service.description}</p></div>
+          </article>)}
+        </div>
+      </section>
+
+      <section className="band" id="equipo" aria-labelledby="team-title">
+        <div className="shell section team" data-reveal>
+          <div>
+            <p className="eyebrow"><span /> EQUIPO</p>
+            <h2 id="team-title">Conoce a Kineli</h2>
+            {!!team.length ? <div className="grid gap-4 sm:grid-cols-2">
+              {team.map(person => <article className="person lift" key={person.name}>
+                <Image src={asset(person.photo)} width={260} height={260} alt={person.name} />
+                <h3>{person.name}</h3><p>{person.credentials} · {person.specialty}</p>
+              </article>)}
+            </div> : <><p className="lead">El listado de profesionales, sus credenciales y especialidades está pendiente de confirmación.</p><a className="text-link" href={contact}>Consulta por el equipo ↗</a></>}
+          </div>
+          <figure className="poster"><Image src={asset('apertura-kineli.webp')} width={475} height={628} alt="Fotografía del equipo en el afiche de apertura de Kineli" sizes="(min-width: 1216px) 1180px, calc(100vw - 36px)" /></figure>
+        </div>
+      </section>
+
+      <section className="shell section" aria-labelledby="process-title" data-reveal>
+        <p className="eyebrow"><span /> PRIMERA CONSULTA</p>
+        <h2 id="process-title">Cómo trabajamos</h2>
+        <p className="muted process-note">Proceso orientativo, sujeto a confirmación del centro.</p>
+        <div className="grid gap-4 md:grid-cols-3">
+          <article className="step lift"><h3>Evaluación</h3><p>Una primera conversación sobre lo que te trae a consulta.</p></article>
+          <article className="step lift"><h3>Plan personalizado</h3><p>El profesional conversa contigo sobre objetivos y posibles pasos.</p></article>
+          <article className="step lift"><h3>Acompañamiento</h3><p>El seguimiento se acuerda según tus necesidades y la atención indicada.</p></article>
+        </div>
+      </section>
+
+      <section className="shell section split" aria-labelledby="faq-title" id="preguntas" data-reveal>
+        <h2 id="faq-title">Preguntas frecuentes</h2>
+        <div className="faq">{faq.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
+      </section>
+
+      <section className="shell section booking" id="reserva" aria-labelledby="booking-title" data-reveal>
+        <div>
+          <p className="eyebrow"><span /> SOLICITUD DE ATENCIÓN</p>
+          <h2 id="booking-title">Agenda tu hora</h2>
+          <p className="lead">Indica tu especialidad y una fecha de preferencia. Podrás revisar el mensaje en WhatsApp antes de enviarlo.</p>
+          <a className="text-link" href={contact}>Abrir WhatsApp directamente ↗</a>
+        </div>
+        <Booking />
+      </section>
+
+      <section className="shell section split" id="contacto" aria-labelledby="contact-title">
+        <div><p className="eyebrow"><span /> CONTACTO</p><h2 id="contact-title">Hablemos</h2></div>
+        <div className="contact-card">
+          <p><strong>Ubicación y horarios</strong><br />La dirección exacta, el mapa y los horarios están pendientes de confirmación. Puedes consultarlos por WhatsApp.</p>
+          <div className="flex flex-wrap gap-3"><a className="button outline" href={contact}>WhatsApp ↗</a><a className="button outline" href={instagram}>Instagram ↗</a></div>
+        </div>
+      </section>
+    </main>
+    <footer><div className="shell footer"><strong>Kineli</strong><a href={asset('privacidad/')}>Aviso de privacidad</a><a href="#inicio">Volver arriba ↑</a></div></footer>
+    <Effects />
+  </>;
+}
