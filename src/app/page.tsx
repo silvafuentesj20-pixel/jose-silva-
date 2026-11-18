@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { asset, contact, faq, instagram, services, team } from '../lib/site';
 import Booking from '../components/Booking';
-import HeroVisual from '../components/HeroVisual';
+import WellnessSlides from '../components/WellnessSlides';
 import { AgendaLink, Effects } from '../components/Effects';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -27,7 +27,7 @@ export default function Home() {
           <AgendaLink />
           <a className="scroll-link" href="#especialidades"><span aria-hidden="true">↓</span> Explora Kineli</a>
         </div>
-        <HeroVisual />
+        <WellnessSlides />
       </section>
 
       <section id="especialidades" className="shell section" data-reveal aria-labelledby="services-title">

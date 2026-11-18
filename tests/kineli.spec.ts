@@ -26,7 +26,7 @@ test('móvil mantiene el contenido y evita cargar la escena 3D', async ({ page }
   await page.setViewportSize({ width: 360, height: 800 });
   await page.goto('/');
   await expect(page.getByRole('link', { name: 'Agenda tu hora' }).first()).toBeVisible();
-  await expect(page.locator('.sculpture')).toBeVisible();
+  await expect(page.locator('.wellness-poster')).toBeVisible();
   await expect(page.locator('canvas')).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(360);
   const bytes = await page.evaluate(() => performance.getEntriesByType('resource').reduce((sum, item) => sum + (item as PerformanceResourceTiming).encodedBodySize, 0));
@@ -39,4 +39,15 @@ test('aviso de privacidad abre y permite volver al formulario', async ({ page })
   await expect(page.getByRole('heading', { name: 'Aviso de privacidad' })).toBeVisible();
   await page.getByRole('link', { name: 'Volver a la solicitud' }).click();
   await expect(page).toHaveURL(/#reserva$/);
+});
+
+test('la secuencia de portada se puede recorrer y queda en pausa con movimiento reducido', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  const gallery = page.getByRole('region', { name: 'Consejos de bienestar de Kineli' });
+  await expect(gallery.getByRole('button', { name: 'Reproducir' })).toBeVisible();
+  await gallery.getByRole('button', { name: 'Imagen siguiente' }).click();
+  await expect(gallery.getByRole('img')).toHaveAttribute('src', /mente\.webp$/);
+  await gallery.getByRole('button', { name: 'Imagen anterior' }).click();
+  await expect(gallery.getByRole('img')).toHaveAttribute('src', /cuerpo\.webp$/);
 });

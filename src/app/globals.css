@@ -95,3 +95,15 @@ footer { background: #342052; color: white; }
   .lift:hover { transform: perspective(900px) translateY(-4px) rotateX(1.5deg); box-shadow: 0 13px 30px #4d2b8819; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.wellness-slides { width: min(calc(100% - 32px), 390px); margin: 0 auto 24px; }
+.wellness-controls { display: flex; align-items: center; justify-content: center; gap: 7px; margin-bottom: 8px; color: var(--accent); font-size: .84rem; font-weight: 800; }
+.wellness-controls button { min-height: 44px; min-width: 44px; padding-inline: 10px; border: 1px solid var(--line); border-radius: 10px; background: white; cursor: pointer; }
+.wellness-controls button:hover { background: #ebfafa; }
+.wellness-controls span { margin-inline-start: 4px; }
+.wellness-poster { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; border-radius: 18px; background: white; box-shadow: 0 12px 28px #4d2b8824; }
+@media (min-width: 760px) { .wellness-slides { width: min(calc(100% - 36px), 390px); margin: 24px auto; } }
+@media (prefers-reduced-motion: no-preference) {
+  .wellness-poster { animation: wellness-appear .38s ease both; }
+  @keyframes wellness-appear { from { opacity: .48; } to { opacity: 1; } }
+}
