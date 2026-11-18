@@ -68,11 +68,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="shell section split" aria-labelledby="faq-title" id="preguntas" data-reveal>
-        <h2 id="faq-title">Preguntas frecuentes</h2>
-        <div className="faq">{faq.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
-      </section>
-
       <section className="shell section booking" id="reserva" aria-labelledby="booking-title" data-reveal>
         <div>
           <p className="eyebrow"><span /> SOLICITUD DE ATENCIÓN</p>
@@ -81,6 +76,11 @@ export default function Home() {
           <a className="text-link" href={contact}>Abrir WhatsApp directamente ↗</a>
         </div>
         <Booking />
+      </section>
+
+      <section className="shell section split" aria-labelledby="faq-title" id="preguntas" data-reveal>
+        <h2 id="faq-title">Preguntas frecuentes</h2>
+        <div className="faq">{faq.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section className="shell section split" id="contacto" aria-labelledby="contact-title">
