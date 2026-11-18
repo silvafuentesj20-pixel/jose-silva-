@@ -86,8 +86,8 @@ export default function Home() {
       <section className="shell section split" id="contacto" aria-labelledby="contact-title">
         <div><p className="eyebrow"><span /> CONTACTO</p><h2 id="contact-title">Hablemos</h2></div>
         <div className="contact-card">
-          <p><strong>Ubicación y horarios</strong><br />La dirección exacta, el mapa y los horarios están pendientes de confirmación. Puedes consultarlos por WhatsApp.</p>
-          <div className="flex flex-wrap gap-3"><a className="button outline" href={contact}>WhatsApp ↗</a><a className="button outline" href={instagram}>Instagram ↗</a></div>
+          <p><strong>Ubicación y horarios</strong><br />Encuentra Kineli en Google Maps. Consulta los horarios por WhatsApp.</p>
+          <div className="flex flex-wrap gap-3"><a className="button primary" href="https://maps.app.goo.gl/pggUzWBdahCViAki7" target="_blank" rel="noopener">Cómo llegar en Google Maps ↗</a><a className="button outline" href={contact}>WhatsApp ↗</a><a className="button outline" href={instagram}>Instagram ↗</a></div>
         </div>
       </section>
     </main>
