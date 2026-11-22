@@ -6,7 +6,11 @@ import './globals.css';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 export const metadata: Metadata = {
   title: 'Kineli | Kinesiología y Psicología',
-  description: 'Conoce las especialidades de Kineli y solicita atención por WhatsApp.',
+  description: 
+verification: {
+  google: 'SPGGnehQ6qE5FDkV9HfMon2D6GBirOLwmaCb5_dykhk',
+},
+'Conoce las especialidades de Kineli y solicita atención por WhatsApp.',
   robots: siteUrl ? { index: true, follow: true } : { index: false, follow: false },
   ...(siteUrl ? {
     metadataBase: new URL(siteUrl),
