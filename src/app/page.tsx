@@ -6,6 +6,11 @@ import { AgendaLink, Effects } from '../components/Effects';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
+const specialtyCards = [
+  ...services,
+  { name: "Psicología", image: "psicologa-kineli.jpg", width: 576, height: 720, alt: "Retrato de una psicóloga de Kineli", description: "Atención psicológica individual para explorar lo que estás viviendo, comprender tus emociones y trabajar en objetivos acordados en consulta." },
+];
+
 export default function Home() {
   const schema = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Kineli', url: siteUrl, logo: siteUrl ? new URL(asset('logo-kineli.png'), siteUrl).href : undefined, sameAs: [instagram] };
   return <>
@@ -21,11 +26,17 @@ export default function Home() {
     <main id="contenido">
       <section className="hero shell" id="inicio" aria-labelledby="hero-title">
         <div className="hero-copy">
+          <Image className="hero-background" src={asset('entrada-kineli.jpg')} alt="" fill sizes="(min-width: 1216px) 1180px, 100vw" />
           <p className="eyebrow"><span /> KINESIOLOGÍA Y PSICOLOGÍA</p>
           <h1 id="hero-title">Tu bienestar,<br /><em>nuestro compromiso.</em></h1>
           <p className="lead">Un espacio para cuidar el movimiento y la salud emocional. Conoce nuestras especialidades y consulta por una hora de atención.</p>
           <AgendaLink />
           <a className="scroll-link" href="#especialidades"><span aria-hidden="true">↓</span> Explora Kineli</a>
+        </div>
+        <div className="hero-service-logos">
+          <Image src={asset('logo-kinesiologia.jpg')} width={192} height={192} alt="Kinesiología" />
+          <Image src={asset('logo-psicologia.jpg')} width={192} height={192} alt="Psicología" />
+          <Image src={asset('logo-quiropraxia.jpg')} width={192} height={192} alt="Quiropraxia" />
         </div>
         <WellnessSlides />
       </section>
@@ -34,7 +45,7 @@ export default function Home() {
         <p className="eyebrow"><span /> ESPECIALIDADES</p>
         <h2 id="services-title">Dos maneras de cuidarte</h2>
         <div className="grid items-start gap-5 md:grid-cols-2">
-          {services.map(service => <article className="service lift" key={service.name}>
+          {specialtyCards.map(service => <article className="service lift" key={service.image}>
             <div className="service-portrait"><Image src={asset(service.image)} alt={service.alt} width={service.width} height={service.height} /></div>
             <div className="card-copy"><p className="service-brand">Kineli</p><h3>{service.name}</h3><p>{service.description}</p></div>
           </article>)}
@@ -53,7 +64,7 @@ export default function Home() {
               </article>)}
             </div> : <><p className="lead">El listado de profesionales, sus credenciales y especialidades está pendiente de confirmación.</p><a className="text-link" href={contact}>Consulta por el equipo ↗</a></>}
           </div>
-          <figure className="poster"><Image src={asset('apertura-kineli.webp')} width={475} height={628} alt="Fotografía del equipo en el afiche de apertura de Kineli" sizes="(min-width: 1216px) 1180px, calc(100vw - 36px)" /></figure>
+          <figure className="poster"><Image src={asset('equipo-kineli-fondo.jpg')} width={1536} height={1024} alt="Foto grupal de los cinco integrantes del equipo de Kineli" sizes="(min-width: 1216px) 1180px, calc(100vw - 36px)" /></figure>
         </div>
       </section>
 

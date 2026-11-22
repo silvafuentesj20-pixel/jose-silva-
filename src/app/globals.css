@@ -27,7 +27,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .outline { color: var(--accent); border: 1px solid #a78ac8; background: white; }
 .outline:hover { background: #ebfafa; }
 .hero { position: relative; display: grid; overflow: hidden; border: 1px solid var(--line); border-radius: 26px; background: radial-gradient(ellipse at 84% 50%, #e4fafa, transparent 57%), linear-gradient(150deg, white, #eee7ff); }
-.hero-copy { position: relative; z-index: 1; padding: clamp(24px, 5vw, 68px); }
+.hero-background { z-index: -2; object-fit: cover; object-position: center 50%; }
+.hero-copy { position: relative; isolation: isolate; padding: clamp(24px, 5vw, 68px); }
+.hero-copy::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #f7f5fffa 0%, #f7f5ffed 42%, #f7f5ff75 65%, transparent 85%); }
 .eyebrow { display: flex; align-items: center; gap: 9px; font-size: .71rem; letter-spacing: .125em; font-weight: 800; color: var(--accent); }
 .eyebrow span { width: 9px; height: 9px; flex: none; border-radius: 50%; background: var(--turquesa); }
 h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -.05em; line-height: 1.05; overflow-wrap: break-word; }
@@ -53,17 +55,16 @@ h3 { font-size: clamp(1.38rem, 2.4vw, 2rem); }
 .service-portrait { position: relative; min-height: 168px; overflow: hidden; background: #ede6ff; }
 .service-portrait img { position: absolute; inset: 0 auto auto 0; width: 235%; max-width: none; height: auto; }
 .service:nth-child(2) .service-portrait { min-height: 200px; }
-.service:nth-child(2) .service-portrait img { width: 175%; left: 0; }
 .service .card-copy { align-self: center; padding: clamp(12px, 2.6vw, 28px); }
 .service .service-brand { margin: 0 0 6px; color: var(--accent); font-size: .8rem; font-weight: 800; letter-spacing: .08em; }
 .card-copy, .step, .contact-card, .person { padding: clamp(19px, 3vw, 32px); }
 .card-copy p, .step p { margin-block: 11px 8px; color: var(--muted); }
 .card-copy small, .muted { font-size: .87rem; color: var(--muted); }
-.band { background: #ede6ff; }
+.band { background: linear-gradient(120deg, #ede6ff, #e4fafa); }
 .team, .split, .booking { display: grid; gap: 21px; align-items: start; }
 .team { align-items: center; }
-.poster { width: 100%; margin: 0; overflow: hidden; border-radius: 18px; box-shadow: 0 18px 38px #633e9f33; }
-.poster img { display: block; width: 100%; height: clamp(170px, 35vw, 420px); object-fit: cover; object-position: center 28%; }
+.poster { position: relative; width: 100%; margin: 0; overflow: hidden; border-radius: 18px; box-shadow: 0 18px 38px #633e9f33; }
+.poster img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
 .process-note { margin: -10px 0 20px; }
 .step { border-top: 4px solid var(--lila); }
 .step:nth-child(2) { border-top-color: var(--turquesa); }
@@ -115,3 +116,32 @@ footer { background: #342052; color: white; }
   .wellness-poster { animation: wellness-appear .38s ease both; }
   @keyframes wellness-appear { from { opacity: .48; } to { opacity: 1; } }
 }
+
+@media (max-width: 640px) {
+  .hero-copy::before { background: linear-gradient(180deg, #f7f5fff2, #f7f5ffda); }
+}
+
+.hero-service-logos {
+  display: flex;
+  justify-content: center;
+  gap: clamp(8px, 3vw, 28px);
+  padding: 16px 12px 24px;
+}
+
+.hero-service-logos img {
+  width: clamp(64px, 24vw, 152px);
+  height: auto;
+  border-radius: 50%;
+}
+
+.service:nth-child(n+2) .service-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
+
+.service:nth-child(2) .service-portrait {
+  aspect-ratio: 4 / 5;
+  min-height: 0;
+}
+
+.service:nth-child(2) .service-portrait img {
+  object-position: center top;
+}
+

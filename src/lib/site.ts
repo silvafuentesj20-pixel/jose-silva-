@@ -6,7 +6,7 @@ export const instagram = 'https://www.instagram.com/kineli.cl/';
 
 export const services = [
   { name: 'Kinesiología', image: 'afiche-kinesiologia.webp', width: 520, height: 626, alt: 'Profesional de Kinesiología de Kineli', description: 'Un espacio para conversar sobre movilidad, función física y las actividades que quieres retomar.' },
-  { name: 'Psicología', image: 'afiche-psicologia.webp', width: 471, height: 623, alt: 'Carlita Catalán, psicóloga de Kineli.', description: 'Un espacio de escucha para explorar emociones, vínculos y experiencias.' },
+  { name: 'Psicología', image: 'carlita-catalan.jpg', width: 540, height: 960, alt: 'Carlita Catalán, psicóloga de Kineli.', description: 'Un espacio de escucha para explorar emociones, vínculos y experiencias.' },
 ] as const;
 
 export const team: { name: string; credentials: string; specialty: string; photo: string }[] = [];
