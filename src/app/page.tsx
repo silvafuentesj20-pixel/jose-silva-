@@ -25,6 +25,13 @@ export default function Home() {
     </header>
     <main id="contenido">
       <section className="hero shell" id="inicio" aria-labelledby="hero-title">
+        <div className="hero-welcome">
+          <div className="welcome-sticker" aria-hidden="true">
+            <Image src={asset('sticker-bienvenida.jpg')} width={366} height={440} alt="" />
+            <div className="welcome-hand"><Image src={asset('sticker-bienvenida.jpg')} width={366} height={440} alt="" /></div>
+          </div>
+          <p>Bienvenido/a a Kineli</p>
+        </div>
         <div className="hero-copy">
           <Image className="hero-background" src={asset('entrada-kineli.jpg')} alt="" fill sizes="(min-width: 1216px) 1180px, 100vw" />
           <p className="eyebrow"><span /> KINESIOLOGÍA Y PSICOLOGÍA</p>
@@ -101,6 +108,9 @@ export default function Home() {
           <div className="flex flex-wrap gap-3"><a className="button primary" href="https://maps.app.goo.gl/pggUzWBdahCViAki7" target="_blank" rel="noopener">Cómo llegar en Google Maps ↗</a><a className="button outline" href={contact}>WhatsApp ↗</a><a className="button outline" href={instagram}>Instagram ↗</a></div>
         </div>
       </section>
+      <div className="shell">
+        <Image className="contact-map" src={asset('mapa-kineli.jpg')} width={900} height={1599} alt="Mapa de Centro Kineli en Av. Palmira Romano Sur 248, local 2, Strip Center Santa Cruz de Limache, frente a Ferretería Toso." />
+      </div>
     </main>
     <footer><div className="shell footer"><strong>Kineli</strong><a href={asset('privacidad/')}>Aviso de privacidad</a><a href="#inicio">Volver arriba ↑</a></div></footer>
     <Effects />

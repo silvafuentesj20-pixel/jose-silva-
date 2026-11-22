@@ -145,3 +145,79 @@ footer { background: #342052; color: white; }
   object-position: center top;
 }
 
+
+.hero-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 3vw, 28px);
+  padding: 18px 16px;
+  background: linear-gradient(105deg, #ede6ff, #e4fafa);
+}
+
+.welcome-sticker {
+  position: relative;
+  flex: none;
+  width: clamp(84px, 17vw, 144px);
+  mix-blend-mode: multiply;
+}
+
+.welcome-sticker img { display: block; width: 100%; height: auto; }
+@media (prefers-reduced-motion: no-preference) {
+  .welcome-sticker > img { clip-path: polygon(0 0, 100% 0, 100% 21.5%, 83% 21.5%, 83% 27%, 86% 33%, 100% 35%, 100% 100%, 0 100%); }
+}
+
+.welcome-hand { display: none; }
+
+.hero-welcome p {
+  position: relative;
+  margin: 0;
+  padding: 10px 16px;
+  border-radius: 24px;
+  background: white;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.hero-welcome p::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  translate: 1px -50%;
+  border: 7px solid transparent;
+  border-right-color: white;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-welcome p { animation: kineli-welcome-message 1.6s ease-out .2s both; }
+
+  @keyframes kineli-welcome-message {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .welcome-hand {
+    display: block;
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(100% 21.5%, 83% 21.5%, 83% 27%, 86% 33%, 100% 35%);
+    transform-origin: 86% 32%;
+    animation: kineli-welcome 1s ease-in-out 3;
+  }
+  @keyframes kineli-welcome {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-12deg); }
+    65% { transform: rotate(10deg); }
+  }
+}
+
+.contact-map {
+  display: block;
+  width: 100%;
+  height: clamp(260px, 48vw, 500px);
+  object-fit: cover;
+  object-position: center 78%;
+  margin-bottom: 32px;
+  border-radius: 18px;
+}

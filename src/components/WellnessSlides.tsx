@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { asset } from '../lib/site';
 
 const slides = [
+  { file: "horarios", description: "Horario de atención de Kineli. Lunes a viernes de 9:00 a 20:00 y sábado de 9:00 a 14:00." },
   { file: "esguince-definicion", description: "Infografía que explica qué es un esguince de tobillo y señala los ligamentos lesionados." },
   { file: "esguince-anatomia", description: "Infografía sobre la anatomía del tobillo y cómo se produce un esguince." },
   { file: "alta-1", description: "Una paciente de alta sostiene una medalla de Kineli junto a su kinesiólogo." },
