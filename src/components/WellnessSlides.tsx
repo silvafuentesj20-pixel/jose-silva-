@@ -6,12 +6,12 @@ import { asset } from '../lib/site';
 
 const slides = [
   { file: "horarios", description: "Horario de atención de Kineli. Lunes a viernes de 9:00 a 20:00 y sábado de 9:00 a 14:00." },
-  { file: "esguince-definicion", description: "Infografía que explica qué es un esguince de tobillo y señala los ligamentos lesionados." },
-  { file: "esguince-anatomia", description: "Infografía sobre la anatomía del tobillo y cómo se produce un esguince." },
-  { file: "alta-1", description: "Una paciente de alta sostiene una medalla de Kineli junto a su kinesiólogo." },
-  { file: "alta-2", description: "Un paciente de alta muestra una medalla de Kineli junto a su kinesiólogo." },
-  { file: "consulta", description: "Una profesional conversa con una persona en la consulta de Kineli." },
-  { file: "ejercicio", description: "Un kinesiólogo guía un ejercicio de sentadilla con pesa rusa." },
+  { file: "presoterapia", description: "Presoterapia para piernas, abdomen y brazos." },
+  { file: "recupera-movimiento", description: "Recupera tu movimiento. Evaluación y rehabilitación personalizada." },
+  { file: "entrenamiento-guiado", description: "Entrena con orientación profesional. Kinesiólogo y técnico deportivo." },
+  { file: "atencion-personalizada", description: "Tu cuerpo merece atención. Evaluación previa y atención personalizada." },
+  { file: "consulta-kineli", description: "Estamos aquí para cuidarte. Agenda tu hora en Kineli." },
+  { file: "apoyo-psicologico", description: "Pedir apoyo también es cuidarte. Un espacio para tu bienestar emocional." },
 ];
 
 export default function WellnessSlides() {
