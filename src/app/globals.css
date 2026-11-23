@@ -221,3 +221,14 @@ footer { background: #342052; color: white; }
   margin-bottom: 32px;
   border-radius: 18px;
 }
+
+.header-hours {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.35;
+}
+
+.header-hours strong { color: var(--accent); }

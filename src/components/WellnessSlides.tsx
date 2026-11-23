@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { asset } from '../lib/site';
 
 const slides = [
-  { file: "horarios", description: "Horario de atención de Kineli. Lunes a viernes de 9:00 a 20:00 y sábado de 9:00 a 14:00." },
   { file: "recupera-movimiento", description: "Recupera tu movimiento. Evaluación y rehabilitación personalizada." },
   { file: "entrenamiento-guiado", description: "Entrena con orientación profesional. Kinesiólogo y técnico deportivo." },
   { file: "atencion-personalizada", description: "Tu cuerpo merece atención. Evaluación previa y atención personalizada." },

@@ -18,6 +18,11 @@ export default function Home() {
     <a className="skip" href="#contenido">Saltar al contenido</a>
     <header className="shell header">
       <a href="#inicio" className="brand"><Image src={asset('logo-kineli.png')} width={194} height={109} alt="Kineli, Centro de Rehabilitación y Bienestar" /></a>
+      <p className="header-hours">
+        <strong>Horario de atención</strong>
+        <span>Lunes a viernes · 9:00 a 20:00</span>
+        <span>Sábado · 9:00 a 14:00</span>
+      </p>
       <nav aria-label="Navegación principal" className="flex flex-wrap items-center gap-x-6 gap-y-1">
         <a href="#especialidades">Especialidades</a><a href="#equipo">Equipo</a><a href="#contacto">Contacto</a>
       </nav>
