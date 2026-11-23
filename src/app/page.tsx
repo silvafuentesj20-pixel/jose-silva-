@@ -56,7 +56,7 @@ export default function Home() {
       <section id="especialidades" className="shell section" data-reveal aria-labelledby="services-title">
         <p className="eyebrow"><span /> ESPECIALIDADES</p>
         <h2 id="services-title">Dos maneras de cuidarte</h2>
-        <div className="grid items-start gap-5 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2">
           {specialtyCards.map(service => <article className="service lift" key={service.image}>
             <div className="service-portrait"><Image src={asset(service.image)} alt={service.alt} width={service.width} height={service.height} /></div>
             <div className="card-copy"><p className="service-brand">Kineli</p><h3>{service.name}</h3><p>{service.description}</p></div>

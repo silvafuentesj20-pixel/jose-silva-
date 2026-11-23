@@ -52,9 +52,9 @@ h3 { font-size: clamp(1.38rem, 2.4vw, 2rem); }
 .section { padding-block: clamp(43px, 7vw, 94px); }
 .service, .step, .person, .contact-card, .booking-form { background: white; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
 .service { display: grid; grid-template-columns: minmax(0, 36%) minmax(0, 1fr); align-items: stretch; }
-.service-portrait { position: relative; min-height: 168px; overflow: hidden; background: #ede6ff; }
-.service-portrait img { position: absolute; inset: 0 auto auto 0; width: 235%; max-width: none; height: auto; }
-.service:nth-child(2) .service-portrait { min-height: 200px; }
+.service-portrait { position: relative; align-self: center; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 10px; background: #ede6ff; }
+.service-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+.service:first-child .service-portrait img { position: absolute; inset: 0 auto auto 0; width: 225%; max-width: none; height: auto; }
 .service .card-copy { align-self: center; padding: clamp(12px, 2.6vw, 28px); }
 .service .service-brand { margin: 0 0 6px; color: var(--accent); font-size: .8rem; font-weight: 800; letter-spacing: .08em; }
 .card-copy, .step, .contact-card, .person { padding: clamp(19px, 3vw, 32px); }
@@ -134,16 +134,6 @@ footer { background: #342052; color: white; }
   border-radius: 50%;
 }
 
-.service:nth-child(n+2) .service-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
-
-.service:nth-child(2) .service-portrait {
-  aspect-ratio: 4 / 5;
-  min-height: 0;
-}
-
-.service:nth-child(2) .service-portrait img {
-  object-position: center top;
-}
 
 
 .hero-welcome {
