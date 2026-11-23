@@ -104,7 +104,7 @@ footer { background: #342052; color: white; }
 .wellness-controls button:hover { background: #ebfafa; }
 .wellness-controls span { margin-inline-start: 4px; }
 .wellness-track { display: grid; gap: 16px; align-items: center; }
-.wellness-poster, .wellness-neighbor { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; border-radius: 18px; background: white; box-shadow: 0 12px 28px #4d2b8824; }
+.wellness-poster, .wellness-neighbor { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 18px; box-shadow: 0 12px 28px #4d2b8824; }
 .wellness-track > div { min-width: 0; }
 .wellness-track .wellness-neighbor { display: none; }
 @media (min-width: 760px) {

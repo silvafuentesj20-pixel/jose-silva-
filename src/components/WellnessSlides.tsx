@@ -6,12 +6,13 @@ import { asset } from '../lib/site';
 
 const slides = [
   { file: "horarios", description: "Horario de atención de Kineli. Lunes a viernes de 9:00 a 20:00 y sábado de 9:00 a 14:00." },
-  { file: "presoterapia", description: "Presoterapia para piernas, abdomen y brazos." },
   { file: "recupera-movimiento", description: "Recupera tu movimiento. Evaluación y rehabilitación personalizada." },
   { file: "entrenamiento-guiado", description: "Entrena con orientación profesional. Kinesiólogo y técnico deportivo." },
   { file: "atencion-personalizada", description: "Tu cuerpo merece atención. Evaluación previa y atención personalizada." },
   { file: "consulta-kineli", description: "Estamos aquí para cuidarte. Agenda tu hora en Kineli." },
   { file: "apoyo-psicologico", description: "Pedir apoyo también es cuidarte. Un espacio para tu bienestar emocional." },
+  { file: "tiempo-para-ti", description: "Dedicarte tiempo también es cuidarte. Un espacio para tu bienestar emocional." },
+  { file: "espacio-para-recuperarte", description: "Haz espacio para recuperarte. Cuidado y recuperación muscular." },
 ];
 
 export default function WellnessSlides() {
@@ -48,11 +49,11 @@ export default function WellnessSlides() {
         <span>{active + 1} / {slides.length}</span>
       </div>
       <div className="wellness-track">
-        <Image className="wellness-neighbor" src={asset(`bienestar/${adjacent[0].file}.jpg`)} width={760} height={950} alt="" />
+        <Image className="wellness-neighbor" src={asset(`bienestar/${adjacent[0].file}.jpg`)} width={900} height={1600} alt="" />
         <div aria-live={playing ? 'off' : 'polite'}>
-          <Image key={slide.file} className="wellness-poster" src={asset(`bienestar/${slide.file}.jpg`)} width={760} height={950} alt={slide.description} loading={active === 0 ? 'eager' : undefined} />
+          <Image key={slide.file} className="wellness-poster" src={asset(`bienestar/${slide.file}.jpg`)} width={900} height={1600} alt={slide.description} loading={active === 0 ? 'eager' : undefined} />
         </div>
-        <Image className="wellness-neighbor" src={asset(`bienestar/${adjacent[1].file}.jpg`)} width={760} height={950} alt="" />
+        <Image className="wellness-neighbor" src={asset(`bienestar/${adjacent[1].file}.jpg`)} width={900} height={1600} alt="" />
       </div>
     </section>
   );
