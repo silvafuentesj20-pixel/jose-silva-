@@ -5,16 +5,16 @@ import { motion, MotionConfig } from 'motion/react';
 
 export function Effects() {
   useEffect(() => {
-    if (!matchMedia('(prefers-reduced-motion: no-preference) and (min-width: 760px)').matches) return;
+    if (!matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
     let disposed = false;
     let revert: (() => void) | undefined;
     Promise.all([import('gsap'), import('gsap/ScrollTrigger')]).then(([{ gsap }, { ScrollTrigger }]) => {
       if (disposed) return;
       gsap.registerPlugin(ScrollTrigger);
       const media = gsap.matchMedia();
-      media.add('(prefers-reduced-motion: no-preference) and (min-width: 760px)', () => {
+      media.add('(prefers-reduced-motion: no-preference)', () => {
         document.querySelectorAll('[data-reveal]').forEach(element => {
-          gsap.fromTo(element, { y: 12 }, { y: 0, duration: .55, clearProps: 'transform', scrollTrigger: { trigger: element, start: 'top 94%', once: true } });
+          gsap.fromTo(element, { y: 28, opacity: .55 }, { y: 0, opacity: 1, duration: 3, ease: 'power2.out', clearProps: 'transform,opacity', scrollTrigger: { trigger: element, start: 'top 96%', once: true } });
         });
       });
       revert = () => media.revert();
